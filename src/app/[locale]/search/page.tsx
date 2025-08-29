@@ -4,28 +4,32 @@ import Navbar from "@/componant/nav-bar";
 import SearchFilters from "@/componant/search-filters/search-filters";
 import { useState } from "react";
 
+import MPlaceholder from "./m.png"; // Placeholder image
+import LPlaceholder from "./l.png"; // Placeholder image
+import Image from "next/image";
+
 // Sample product data
 const products = [
   {
     id: 1,
-    name: "Running Shoes",
-    brand: "Nike",
+    name: "Samsung TV 58 Inch 4k UHD Smaet LED TV",
+    brand: "Samsung",
     price: 120,
     color: "Red",
     image: "/placeholder-shoes.jpg",
   },
   {
     id: 2,
-    name: "Sports T-shirt",
-    brand: "Adidas",
-    price: 45,
-    color: "Blue",
+    name: "Samsung TV 58 Inch 4k UHD Smart LED TV",
+    brand: "Samsung",
+    price: 1200,
+    color: "Black",
     image: "/placeholder-tshirt.jpg",
   },
   {
     id: 3,
-    name: "Training Shorts",
-    brand: "Puma",
+    name: "Samsung TV 58 Inch 4k UHD Smart LED",
+    brand: "Samsung",
     price: 35,
     color: "Black",
     image: "/placeholder-shorts.jpg",
@@ -40,8 +44,8 @@ const products = [
   },
   {
     id: 5,
-    name: "Jacket",
-    brand: "Under Armour",
+    name: "Samsung TV 58 Inch 4k UHD Smaet LED",
+    brand: "Under ",
     price: 85,
     color: "Green",
     image: "/placeholder-jacket.jpg",
@@ -158,16 +162,14 @@ const SearchPage = () => {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-lg shadow-md overflow-hidden  border-1 border-gray-200 hover:shadow-lg transition-shadow"
                 >
                   <div className={`${viewMode === "list" ? "flex" : ""}`}>
                     <div
-                      className={`${
-                        viewMode === "list" ? "w-1/3" : "h-48"
-                      } bg-gray-200`}
+                      className={`${viewMode === "list" ? "w-1/3" : "h-48"} `}
                     >
                       {/* Product image placeholder */}
-                      <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                      {/* <div className="w-full h-full flex items-center justify-center bg-gray-100">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-16 w-16 text-gray-400"
@@ -182,23 +184,28 @@ const SearchPage = () => {
                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                           />
                         </svg>
-                      </div>
+                      </div> */}
+                      <Image
+                        src={product.id % 2 === 0 ? MPlaceholder : LPlaceholder}
+                        alt={product.name}
+                        className="w-full h-full object-cover p-2"
+                      />
                     </div>
                     <div
                       className={`p-4 ${viewMode === "list" ? "w-2/3" : ""}`}
                     >
                       <div className="flex justify-between items-start">
-                        <h3 className="text-lg font-medium text-gray-900">
+                        <h3 className="text-lg h-[60px] font-medium text-gray-900">
                           {product.name}
                         </h3>
-                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                        {/* <span className="bg-[#4ABD86] text-white text-xs font-semibold px-2.5 py-0.5 rounded">
                           {product.brand}
-                        </span>
+                        </span> */}
                       </div>
                       <p className="text-gray-500 text-sm mt-1">
                         {product.color}
                       </p>
-                      <div className="flex items-center mt-2">
+                      <div className="flex   items-center mt-2">
                         <div className="flex text-yellow-400">
                           {/* Star ratings */}
                           {/* {[1, 2, 3, 4, 5].map((star) => (
@@ -213,10 +220,10 @@ const SearchPage = () => {
                             </svg>
                           ))} */}
                         </div>
-                        <span className="text-gray-600 text-xs ml-1">(42)</span>
+                        {/* <span className="text-gray-600 text-xs ml-1">(42)</span> */}
                       </div>
                       <div className="mt-3 flex items-center justify-between">
-                        <span className="text-lg font-bold text-gray-900">
+                        <span className="text-lg font-bold text-[#4ABD86]">
                           ${product.price}
                         </span>
                       </div>
@@ -243,7 +250,7 @@ const SearchPage = () => {
                 </a>
                 <a
                   href="#"
-                  className="py-2 px-4 border border-gray-300 bg-blue-500 text-sm font-medium text-white"
+                  className="py-2 px-4 border border-gray-300 bg-[#4ABD86] text-sm font-medium text-white"
                 >
                   2
                 </a>
